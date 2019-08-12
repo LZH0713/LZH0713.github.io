@@ -79,6 +79,63 @@
 
    
     
+    <article class="post-expand host" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/08/12/npm-run-build超内存处理/" title="npm run build超内存处理" itemprop="url">npm run build超内存处理</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="LZH0713" target="_blank" itemprop="author">LZH0713</a>
+		
+  <p class="article-time">
+    <time datetime="2019-08-12T11:15:26.000Z" itemprop="datePublished"> 发表于 2019-08-12</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>npm run build 过程中出现oom，如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory</span><br></pre></td></tr></table></figure>
+
+<h2 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h2><p>转载 <a href="increase-memory-limit"></a><a href="https://www.npmjs.com/package/increase-memory-limit" target="_blank" rel="noopener">https://www.npmjs.com/package/increase-memory-limit</a></p>
+<h3 id="第一种方式"><a href="#第一种方式" class="headerlink" title="第一种方式"></a>第一种方式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ export NODE_OPTIONS=--max_old_space_size=4096</span><br></pre></td></tr></table></figure>
+
+<h3 id="第二种方式"><a href="#第二种方式" class="headerlink" title="第二种方式"></a>第二种方式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g increase-memory-limit</span><br><span class="line">$ increase-memory-limit</span><br></pre></td></tr></table></figure>
+
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
     <article class="post-expand post" itemprop="articleBody"> 
         <header class="article-info clearfix">
   <h1 itemprop="name">
