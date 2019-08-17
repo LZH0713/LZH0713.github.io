@@ -5,24 +5,24 @@
   <meta name="baidu-site-verification" content="SRzW4vdgU0">
   <meta charset="UTF-8">
   
-    <title>npm run build超内存处理 | LZH0713个人博客</title>
+    <title>Nginx 上传文件413报错 | LZH0713个人博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="LZH0713">
     
 
     
-    <meta name="description" content="问题描述npm run build 过程中出现oom，如下 1CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory  解决方式转载 https://www.npmjs.com/package/increase-memory-limit 第一种方式1$ export NODE_OPTIONS=--max_old_s">
+    <meta name="description" content="问题说明产生原因是因为客户端上传文件大小超过了nginx的限制，默认1M 官方解释如下：http://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size 处理方式123Syntax:  		client_max_body_size size;Default:    client_max_body_size 1m">
 <meta property="og:type" content="article">
-<meta property="og:title" content="npm run build超内存处理">
-<meta property="og:url" content="http://yoursite.com/2019/08/12/npm-run-build超内存处理/index.html">
+<meta property="og:title" content="Nginx 上传文件413报错">
+<meta property="og:url" content="http://yoursite.com/2019/08/17/Nginx-上传文件413报错/index.html">
 <meta property="og:site_name" content="LZH0713个人博客">
-<meta property="og:description" content="问题描述npm run build 过程中出现oom，如下 1CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory  解决方式转载 https://www.npmjs.com/package/increase-memory-limit 第一种方式1$ export NODE_OPTIONS=--max_old_s">
+<meta property="og:description" content="问题说明产生原因是因为客户端上传文件大小超过了nginx的限制，默认1M 官方解释如下：http://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size 处理方式123Syntax:  		client_max_body_size size;Default:    client_max_body_size 1m">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-12T11:29:48.567Z">
+<meta property="og:updated_time" content="2019-08-17T07:50:45.543Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="npm run build超内存处理">
-<meta name="twitter:description" content="问题描述npm run build 过程中出现oom，如下 1CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory  解决方式转载 https://www.npmjs.com/package/increase-memory-limit 第一种方式1$ export NODE_OPTIONS=--max_old_s">
+<meta name="twitter:title" content="Nginx 上传文件413报错">
+<meta name="twitter:description" content="问题说明产生原因是因为客户端上传文件大小超过了nginx的限制，默认1M 官方解释如下：http://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size 处理方式123Syntax:  		client_max_body_size size;Default:    client_max_body_size 1m">
 
     
     <link rel="alternative" href="/atom.xml" title="LZH0713个人博客" type="application/atom+xml">
@@ -76,20 +76,20 @@
 </div>
     </header>
     <div id="container">
-      <div id="main" class="host" itemscope itemprop="blogPost">
+      <div id="main" class="post" itemscope itemprop="blogPost">
   
 	<article itemprop="articleBody"> 
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2019/08/12/npm-run-build超内存处理/" title="npm run build超内存处理" itemprop="url">npm run build超内存处理</a>
+      <a href="/2019/08/17/Nginx-上传文件413报错/" title="Nginx 上传文件413报错" itemprop="url">Nginx 上传文件413报错</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="LZH0713" target="_blank" itemprop="author">LZH0713</a>
 		
   <p class="article-time">
-    <time datetime="2019-08-12T11:15:26.000Z" itemprop="datePublished"> 发表于 2019-08-12</time>
+    <time datetime="2019-08-17T07:39:53.000Z" itemprop="datePublished"> 发表于 2019-08-17</time>
     
   </p>
 </header>
@@ -98,18 +98,21 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题描述"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方式"><span class="toc-number">2.</span> <span class="toc-text">解决方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一种方式"><span class="toc-number">2.1.</span> <span class="toc-text">第一种方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二种方式"><span class="toc-number">2.2.</span> <span class="toc-text">第二种方式</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题说明"><span class="toc-number">1.</span> <span class="toc-text">问题说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#处理方式"><span class="toc-number">2.</span> <span class="toc-text">处理方式</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>npm run build 过程中出现oom，如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory</span><br></pre></td></tr></table></figure>
+		<h2 id="问题说明"><a href="#问题说明" class="headerlink" title="问题说明"></a>问题说明</h2><p>产生原因是因为客户端上传文件大小超过了nginx的限制，默认1M</p>
+<p>官方解释如下：<br><a href="http://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size" target="_blank" rel="noopener">http://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size</a></p>
+<h2 id="处理方式"><a href="#处理方式" class="headerlink" title="处理方式"></a>处理方式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Syntax:  		client_max_body_size size;</span><br><span class="line">Default:    client_max_body_size 1m;</span><br><span class="line">Context:    http, server, location</span><br></pre></td></tr></table></figure>
 
-<h2 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h2><p>转载 <a href="increase-memory-limit"></a><a href="https://www.npmjs.com/package/increase-memory-limit" target="_blank" rel="noopener">https://www.npmjs.com/package/increase-memory-limit</a></p>
-<h3 id="第一种方式"><a href="#第一种方式" class="headerlink" title="第一种方式"></a>第一种方式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ export NODE_OPTIONS=--max_old_space_size=4096</span><br></pre></td></tr></table></figure>
+<p>例如：打开配置文件nginx.conf，在http或server或location下添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">  ...</span><br><span class="line">client_max_body_size 8M;</span><br><span class="line">  client_body_buffer_size 128k;</span><br><span class="line">  ...</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="第二种方式"><a href="#第二种方式" class="headerlink" title="第二种方式"></a>第二种方式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g increase-memory-limit</span><br><span class="line">$ increase-memory-limit</span><br></pre></td></tr></table></figure>
+<p>检查配置和重启即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ nginx -t </span><br><span class="line">$ nginx -s reload</span><br></pre></td></tr></table></figure>
 
+<p>转载至：<a href="https://blog.51cto.com/hld1992/2133610?utm_source=oschina-app" target="_blank" rel="noopener">https://blog.51cto.com/hld1992/2133610?utm_source=oschina-app</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -122,7 +125,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2019/08/12/npm-run-build超内存处理/" data-title="npm run build超内存处理 | LZH0713个人博客" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2019/08/17/Nginx-上传文件413报错/" data-title="Nginx 上传文件413报错 | LZH0713个人博客" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -135,19 +138,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2019/08/17/Nginx-上传文件413报错/" title="Nginx 上传文件413报错">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Nginx 上传文件413报错</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2019/08/05/hexo个人博客搭建/"  title="Hexo个人博客搭建">
+<a href="/2019/08/12/npm-run-build超内存处理/"  title="npm run build超内存处理">
  <strong>下一篇：</strong><br/> 
- <span>Hexo个人博客搭建
+ <span>npm run build超内存处理
 </span>
 </a>
 </div>
@@ -160,6 +155,13 @@
 
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题说明"><span class="toc-number">1.</span> <span class="toc-text">问题说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#处理方式"><span class="toc-number">2.</span> <span class="toc-text">处理方式</span></a></li></ol>
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -297,6 +299,55 @@ $(document).ready(function(){
 </script>
 
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
 
 
 
@@ -368,4 +419,4 @@ var _hmt = _hmt || [];
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>
