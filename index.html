@@ -83,6 +83,57 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2019/09/01/javaweb反射实例无法注入问题/" title="javaweb反射实例无法注入问题" itemprop="url">javaweb反射实例无法注入问题</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="LZH0713" target="_blank" itemprop="author">LZH0713</a>
+		
+  <p class="article-time">
+    <time datetime="2019-09-01T05:05:55.000Z" itemprop="datePublished"> 发表于 2019-09-01</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="无法注入的情况"><a href="#无法注入的情况" class="headerlink" title="无法注入的情况"></a>无法注入的情况</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Class clazz = Class.forName(handlerPkgPath);</span><br><span class="line">Objeact o = clazz.newInstance();</span><br></pre></td></tr></table></figure>
+
+<h2 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">private ApplicationContext context;</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">Objeact o = context.getAutowireCapableBeanFactory().createBean(clazz, AutowireCapableBeanFactory.AUTOWIRE_BY_TYPE, true);</span><br></pre></td></tr></table></figure>
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2019/08/17/Nginx-上传文件413报错/" title="Nginx 上传文件413报错" itemprop="url">Nginx 上传文件413报错</a>
   </h1>
   <p class="article-author">By
