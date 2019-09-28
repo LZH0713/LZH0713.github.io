@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[SpringBoot整合SpringSecurity后出现Post请求403的问题]]></title>
+    <url>%2F2019%2F09%2F28%2FSpringBoot%E6%95%B4%E7%90%86SpringSecurity%E5%90%8E%E5%87%BA%E7%8E%B0Post%E8%AF%B7%E6%B1%82403%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[描述最近SpringBoot整合SpringSecurity出现Post请求被Forbidden 403的问题，翻阅资料后发现是由于csrf作怪，本人采用解决方式如下 处理方式12345678910111213141516171819202122@Configurationpublic class WebSecurityConfig extends WebSecurityConfigurerAdapter &#123; @Autowired private Environment env; @Override public void configure(HttpSecurity http) throws Exception &#123; // @formatter:off for (String profile : env.getActiveProfiles()) &#123; // 加载dev环境下特殊配置 if (profile.contains(Constants.SPRING_PROFILE_DEVELOPMENT)) &#123; http.csrf().disable(); &#125; else &#123; // 非dev环境下开启csrf校验功能,设置过滤地址 http.csrf() .ignoringAntMatchers("/api/**"); &#125; &#125; &#125;&#125;]]></content>
+      <categories>
+        <category>SpringBoot</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>Springboot</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[代理那些事]]></title>
     <url>%2F2019%2F09%2F08%2F%E4%BB%A3%E7%90%86%E9%82%A3%E4%BA%9B%E4%BA%8B%2F</url>
     <content type="text"><![CDATA[背景​ 在前段时间换了Macbook Pro，和公司的办公环境冲突啦，必须采用代理来处理办公环境的问题，这里总结我涉及到的代理那些事。 ​ 在换电脑之前，都是用Windows的笔记本，每次办公都是必须使用EasyConnect打开vpn连接到公司服务，比如使用公司的管理系统，开发数据库，项目管理仓库（svn,git），公司邮箱IBM等等。在换了新电脑Macbook Pro后，发现EasyConnect使用不到了，经过查询了解才发现，safari升级到12之后已经不支持EasyConnect旧服务了，vpn服务端只有升级才能让Macbook Pro使用，经过一番了解，之前同事就遇到这个问题，据说联系公司看能不能升级，结果。。。得到的回复是不升级，建议装虚拟机或者使用Windows电脑。两种方式我都不想啊，总不能我的新电脑没得发挥吧，之后就走上了折腾之路了。 Nginx正向代理​ 终端代理maven代理git代理基于Nginx反向代理实现数据库连接]]></content>
