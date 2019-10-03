@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[平台无关性]]></title>
+    <url>%2F2019%2F10%2F03%2F%E5%B9%B3%E5%8F%B0%E6%97%A0%E5%85%B3%E6%80%A7%2F</url>
+    <content type="text"><![CDATA[平台无关性 一次编译，到处运行。 扮演者重要的角色的有Java语言规范、Class文件、Java虚拟机（JVM）等。 Java语言规范：例如规定int类型是4字节，不像C/C++中，基本数据类型是由它的占位宽度决定的，占位宽度则是由所在平台决定的。所以，在不同的平台中，对于同一个C++程序的编译结果会出现不同的行为。 Class文件：编译成Class文件的语言不只是java,还有Groovy、Scala、Jython等。 Java虚拟机（JVM）：编译器，JVM平台有关性，不同平台有对应的JVM，主要作用是把Class文件编译成只包含0和1的二进制文件，供机器识别。]]></content>
+      <tags>
+        <tag>JVM</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[SpringBoot整合SpringSecurity后出现Post请求403的问题]]></title>
     <url>%2F2019%2F09%2F28%2FSpringBoot%E6%95%B4%E7%90%86SpringSecurity%E5%90%8E%E5%87%BA%E7%8E%B0Post%E8%AF%B7%E6%B1%82403%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[描述最近SpringBoot整合SpringSecurity出现Post请求被Forbidden 403的问题，翻阅资料后发现是由于csrf作怪，本人采用解决方式如下 处理方式12345678910111213141516171819202122@Configurationpublic class WebSecurityConfig extends WebSecurityConfigurerAdapter &#123; @Autowired private Environment env; @Override public void configure(HttpSecurity http) throws Exception &#123; // @formatter:off for (String profile : env.getActiveProfiles()) &#123; // 加载dev环境下特殊配置 if (profile.contains(Constants.SPRING_PROFILE_DEVELOPMENT)) &#123; http.csrf().disable(); &#125; else &#123; // 非dev环境下开启csrf校验功能,设置过滤地址 http.csrf() .ignoringAntMatchers("/api/**"); &#125; &#125; &#125;&#125;]]></content>
