@@ -4,6 +4,9 @@
     <title><![CDATA[平台无关性]]></title>
     <url>%2F2019%2F10%2F03%2F%E5%B9%B3%E5%8F%B0%E6%97%A0%E5%85%B3%E6%80%A7%2F</url>
     <content type="text"><![CDATA[平台无关性 一次编译，到处运行。 扮演者重要的角色的有Java语言规范、Class文件、Java虚拟机（JVM）等。 Java语言规范：例如规定int类型是4字节，不像C/C++中，基本数据类型是由它的占位宽度决定的，占位宽度则是由所在平台决定的。所以，在不同的平台中，对于同一个C++程序的编译结果会出现不同的行为。 Class文件：编译成Class文件的语言不只是java,还有Groovy、Scala、Jython等。 Java虚拟机（JVM）：编译器，JVM平台有关性，不同平台有对应的JVM，主要作用是把Class文件编译成只包含0和1的二进制文件，供机器识别。]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
       <tags>
         <tag>JVM</tag>
       </tags>
