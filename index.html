@@ -253,6 +253,93 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/16/git分支管理常用命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LZH0713">
+      <meta itemprop="description" content="丰富我的程序员生活,努力做更好">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LZH0713">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/03/16/git分支管理常用命令/" class="post-title-link" itemprop="url">git分支管理常用命令</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-16 22:55:10 / 修改时间：22:57:37" itemprop="dateCreated datePublished" datetime="2020-03-16T22:55:10+08:00">2020-03-16</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git remote        # 列出所有远程主机</span><br><span class="line">git remote update origin --prune   # 更新远程主机origin 整理分支</span><br><span class="line">git branch -r      # 列出远程分支</span><br><span class="line">git branch -vv     # 查看本地分支和远程分支对应关系</span><br><span class="line">git checkout -b gpf origin/gpf    # 新建本地分支gpf与远程gpf分支相关联</span><br></pre></td></tr></table></figure>
+
+<h3 id="本地切换分支-创建分支-删除分支"><a href="#本地切换分支-创建分支-删除分支" class="headerlink" title="本地切换分支/创建分支/删除分支"></a>本地切换分支/创建分支/删除分支</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git branch [name] #本地创建分支</span><br><span class="line">git checkout -b [name] # 本地创建分支并切换</span><br><span class="line">git checkout [name] # 本地切换分支</span><br><span class="line"></span><br><span class="line">git branch -d [name] # 删除本地分支</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git push origin :[远程分支名称] # 推送空的本地分支到远程，达到删除</span><br><span class="line">git branch -r -d origin/[branch-name] #删除远程分支</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git branch # 查看本地分支</span><br><span class="line">git branch -r # 查看远程分支</span><br><span class="line">git branch -a # 查看本地和远程所有分支</span><br></pre></td></tr></table></figure>
+
+<h3 id="如果远程新建了一个分支，本地没有该分支"><a href="#如果远程新建了一个分支，本地没有该分支" class="headerlink" title="如果远程新建了一个分支，本地没有该分支"></a>如果远程新建了一个分支，本地没有该分支</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 本地会新建一个分支名叫 branch_name ，会自动跟踪远程的同名分支 branch_name。</span><br><span class="line">git checkout --track origin/branch_name</span><br></pre></td></tr></table></figure>
+
+<h3 id="如果本地新建了一个分支-branch-name，但是在远程没有"><a href="#如果本地新建了一个分支-branch-name，但是在远程没有" class="headerlink" title="如果本地新建了一个分支 branch_name，但是在远程没有"></a>如果本地新建了一个分支 branch_name，但是在远程没有</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 自动在远程创建一个 branch_name 分支</span><br><span class="line">git push --set-upstream origin branch_name</span><br></pre></td></tr></table></figure>
+
+<h3 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 首先切换到本地master分支上</span><br><span class="line">git checkout master</span><br><span class="line"># 如果是多人开发的话需要把远程master上的代码pull下来</span><br><span class="line">git pull [origin master]</span><br><span class="line"># 然后我们把dev分支的代码合并到master上</span><br><span class="line">git merge dev</span><br><span class="line"># 然后查看状态</span><br><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+<p>转载至：<a href="https://www.cnblogs.com/aaron-agu/p/10454788.html" target="_blank" rel="noopener">https://www.cnblogs.com/aaron-agu/p/10454788.html</a></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/13/打包问题：roadhog-build-from-UglifyJs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -282,11 +369,19 @@
                 
               
 
-              <time title="创建时间：2020-03-13 23:57:51 / 修改时间：23:59:16" itemprop="dateCreated datePublished" datetime="2020-03-13T23:57:51+08:00">2020-03-13</time>
+              <time title="创建时间：2020-03-13 23:57:51" itemprop="dateCreated datePublished" datetime="2020-03-13T23:57:51+08:00">2020-03-13</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-16 22:57:40" itemprop="dateModified" datetime="2020-03-16T22:57:40+08:00">2020-03-16</time>
+              </span>
             
           
 
@@ -1057,131 +1152,6 @@
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/05/hexo个人博客搭建/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LZH0713">
-      <meta itemprop="description" content="丰富我的程序员生活,努力做更好">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LZH0713">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/08/05/hexo个人博客搭建/" class="post-title-link" itemprop="url">Hexo个人博客搭建</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-05 20:19:25" itemprop="dateCreated datePublished" datetime="2019-08-05T20:19:25+08:00">2019-08-05</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-16 22:00:33" itemprop="dateModified" datetime="2020-02-16T22:00:33+08:00">2020-02-16</time>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="安装Git、Node-js和hexo"><a href="#安装Git、Node-js和hexo" class="headerlink" title="安装Git、Node.js和hexo"></a>安装Git、Node.js和hexo</h2><ul>
-<li><p>Git,Node自行查看和安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ node -v #是否出现安装版本信息，出现说明已经安装了</span><br><span class="line">$ git --version #同上述情况</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>hexo安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 在你的家目录下创建一个blog文件夹</span><br><span class="line">$ mkdir blog</span><br><span class="line"># 进入目录</span><br><span class="line">$ cd blog</span><br><span class="line"># 初始化目录</span><br><span class="line">$ hexo init</span><br><span class="line"># 开启本地服务 </span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="生产静态文件推送到github"><a href="#生产静态文件推送到github" class="headerlink" title="生产静态文件推送到github"></a>生产静态文件推送到github</h2><ul>
-<li><p>创建github个人公开仓库,仓库名必须时{username}.github.io</p>
-<p><img src="http://pw2j8tkir.bkt.clouddn.com//image-20190810154558657.png" alt></p>
-</li>
-<li><p>生产静态文件,推送到个人仓库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 生产静态文件</span><br><span class="line">$ hexo g</span><br><span class="line">$ npm install hexo-deployer-git --save</span><br><span class="line"># 推送github</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="设置主题"><a href="#设置主题" class="headerlink" title="设置主题"></a>设置主题</h2><ul>
-<li><p>挑选和下载</p>
-</li>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 挑选主题</span><br><span class="line">$ https://hexo.io/themes/</span><br><span class="line"># 下载</span><br><span class="line">$ git clone https://github.com/wuchong/jacman.git &#123;hexo_root&#125;/themes/Jacman</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置主题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 编辑hexo配置文件</span><br><span class="line">$ vi &#123;hexo_root&#125;/_config.yml</span><br><span class="line"># 找到theme，并变更，如</span><br><span class="line">···</span><br><span class="line">theme: Jacman</span><br><span class="line">···</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="文章发布"><a href="#文章发布" class="headerlink" title="文章发布"></a>文章发布</h2><ul>
-<li>把需要发布的md文件放到{hexo_root}/source/_posts，重新打包生产静态文件和推送即可</li>
-</ul>
-<h2 id="主题自定义设置"><a href="#主题自定义设置" class="headerlink" title="主题自定义设置"></a>主题自定义设置</h2><ul>
-<li><p>进入主题文件夹，自定义设置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 打开_config.yml</span><br><span class="line">$ vi &#123;hexo_root&#125;/themes/Jacman/_config.yml</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置说明</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br></pre></td><td class="code"><pre><span class="line">##### Menu</span><br><span class="line">menu:</span><br><span class="line">  主页|Home: /</span><br><span class="line">  归档|Archives: /archives</span><br><span class="line">  简介|About: /about</span><br><span class="line">## you can create `tags` and `categories` folders in `../source`.</span><br><span class="line">## And create a `index.md` file in each of them.</span><br><span class="line">## set `front-matter`as</span><br><span class="line">## layout: tags (or categories)</span><br><span class="line">## title: tags (or categories)</span><br><span class="line">## ---</span><br><span class="line"></span><br><span class="line"># 右边显示部分，按着排序进行排序，我用到了分类，标签，友情链接，微博，rss</span><br><span class="line">#### Widgets</span><br><span class="line">widgets: </span><br><span class="line">- github-card</span><br><span class="line">- category</span><br><span class="line">- tag</span><br><span class="line">#- links</span><br><span class="line">#- douban</span><br><span class="line">#- rss</span><br><span class="line">- weibo</span><br><span class="line">  ## provide eight widgets:github-card,category,tag,rss,archive,tagcloud,links,weibo</span><br><span class="line"></span><br><span class="line">#### RSS </span><br><span class="line"></span><br><span class="line">rss: /atom.xml ## RSS address.</span><br><span class="line"></span><br><span class="line">#### Image</span><br><span class="line">imglogo:</span><br><span class="line">  enable: true             ## display image logo true/false.</span><br><span class="line">  src: img/logo.png        ## `.svg` and `.png` are recommended,please put image into the theme folder `/jacman/source/img`.</span><br><span class="line">favicon: img/favicon.ico   ## size:32px*32px,`.ico` is recommended,please put image into the theme folder `/jacman/source/img`.     </span><br><span class="line">apple_icon: img/jacman.jpg ## size:114px*114px,please put image into the theme folder `/jacman/source/img`.</span><br><span class="line">author_img: img/author.jpg ## size:220px*220px.display author avatar picture.if don&apos;t want to display,please don&apos;t set this.</span><br><span class="line">banner_img: #img/banner.jpg ## size:1920px*200px+. Banner Picture</span><br><span class="line">### Theme Color </span><br><span class="line">theme_color:</span><br><span class="line">    theme: &apos;#2ca6cb&apos;    ##the defaut theme color is blue</span><br><span class="line"></span><br><span class="line"># 代码高亮主题</span><br><span class="line"># available: default | night</span><br><span class="line">highlight_theme: default</span><br><span class="line"></span><br><span class="line"># 首页文章是否展开。默认为展开式，显示 Read More</span><br><span class="line">#### index post is expanding or not </span><br><span class="line">index:</span><br><span class="line">  expand: true           ## default is unexpanding,so you can only see the short description of each post.</span><br><span class="line">  excerpt_link: Read More  </span><br><span class="line"></span><br><span class="line"># 是否在文章页面自动关闭侧边栏</span><br><span class="line">close_aside: false  #close sidebar in post page if true</span><br><span class="line">mathjax: false      #enable mathjax if true</span><br><span class="line"></span><br><span class="line">### Creative Commons License Support, see http://creativecommons.org/ </span><br><span class="line">### you can choose: by , by-nc , by-nc-nd , by-nc-sa , by-nd , by-sa , zero</span><br><span class="line">creative_commons: none</span><br><span class="line"></span><br><span class="line"># 作者信息，显示在网站底部。主要包括，文字介绍，以及图片。还有各种你的链接包括微博等等。换成你id就行；</span><br><span class="line">#### Author information</span><br><span class="line">author:</span><br><span class="line">  intro_line1:  &quot;水滴石穿，日积月累&quot;    ## your introduction on the bottom of the page</span><br><span class="line">  intro_line2:  &quot;可持续发展，与时俱进&quot;  ## the 2nd line</span><br><span class="line">#  weibo: 2176287895     ## e.g. wuchong1014 or 2176287895 for http://weibo.com/2176287895</span><br><span class="line">#  weibo_verifier: b3593ceb    ## e.g. b3593ceb Your weibo-show widget verifier ,if you use weibo-show it is needed.</span><br><span class="line">  tsina:      ## e.g. 2176287895  Your weibo ID,It will be used in share button.</span><br><span class="line">  douban:     ## e.g. wuchong1014 or your id for https://www.douban.com/people/wuchong1014</span><br><span class="line">  zhihu:      ## e.g. jark  for http://www.zhihu.com/people/jark</span><br><span class="line">  email:      ## e.g. imjark@gmail.com</span><br><span class="line">  twitter:    ## e.g. jarkwu for https://twitter.com/jarkwu</span><br><span class="line">  github:     ## e.g. wuchong for https://github.com/wuchong</span><br><span class="line">  facebook:   ## e.g. imjark for https://facebook.com/imjark</span><br><span class="line">  linkedin:   ## e.g. wuchong1014 for https://www.linkedin.com/in/wuchong1014</span><br><span class="line">  google_plus:    ## e.g. &quot;111190881341800841449&quot; for https://plus.google.com/u/0/111190881341800841449, the &quot;&quot; is needed!</span><br><span class="line">  stackoverflow:  ## e.g. 3222790 for http://stackoverflow.com/users/3222790/jark</span><br><span class="line">## if you set them, the corresponding  share button will show on the footer</span><br><span class="line"></span><br><span class="line">#### 目录，是否在文章中显示目录。显示在侧边栏；</span><br><span class="line">#### Toc</span><br><span class="line">toc:</span><br><span class="line">  article: true   ## show contents in article.</span><br><span class="line">  aside: true     ## show contents in aside.</span><br><span class="line">## you can set both of the value to true of neither of them.</span><br><span class="line">## if you don&apos;t want display contents in a specified post,you can modify `front-matter` and add `toc: false`.</span><br><span class="line"></span><br><span class="line">#### 友情链接</span><br><span class="line">#### Links</span><br><span class="line">links:</span><br><span class="line">  码农圈: https://coderq.com,一个面向程序员交流分享的新一代社区</span><br><span class="line">  Jark&apos;s Blog: http://wuchong.me</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### 评论 国内用多说很好。注册账号，写在这里就ok</span><br><span class="line">#### Comment</span><br><span class="line">duoshuo_shortname:    ## e.g. wuchong   your duoshuo short name.</span><br><span class="line">disqus_shortname:     ## e.g. wuchong   your disqus short name.</span><br><span class="line">gentie_key:           ## your 163 gentie key, see https://gentie.163.com/</span><br><span class="line">changyan_appid:       ## changyan app id, see http://changyan.kuaizhan.com/</span><br><span class="line">changyan_appkey:      ## changyan app key, see http://changyan.kuaizhan.com/</span><br><span class="line"></span><br><span class="line">#### 主题自带分享，这里用了false</span><br><span class="line">#### Share button</span><br><span class="line">jiathis:</span><br><span class="line">  enable: false ## if you use jiathis as your share tool,the built-in share tool won&apos;t be display.</span><br><span class="line">  id:    ## e.g. 1889330 your jiathis ID. </span><br><span class="line">  tsina: ## e.g. 2176287895 Your weibo id,It will be used in share button.</span><br><span class="line"></span><br><span class="line">####网站统计，我用的时cnzz统计</span><br><span class="line">#### Analytics</span><br><span class="line">google_analytics:</span><br><span class="line">  enable: false</span><br><span class="line">  id:        ## e.g. UA-46321946-2 your google analytics ID.</span><br><span class="line">  site:      ## e.g. wuchong.me your google analytics site or set the value as auto.</span><br><span class="line">## You MUST upgrade to Universal Analytics first!</span><br><span class="line">## https://developers.google.com/analytics/devguides/collection/upgrade/?hl=zh_CN</span><br><span class="line">baidu_tongji:</span><br><span class="line">  enable: true</span><br><span class="line">  sitecode: e6d1f421bbc9962127a50488f9ed37d1 ## e.g. e6d1f421bbc9962127a50488f9ed37d1 your baidu tongji site code</span><br><span class="line">cnzz_tongji:</span><br><span class="line">  enable: false</span><br><span class="line">  siteid:    ## e.g. 1253575964 your cnzz tongji site id</span><br><span class="line"></span><br><span class="line">#### Miscellaneous</span><br><span class="line">ShowCustomFont: true  ## you can change custom font in `variable.styl` and `font.styl` which in the theme folder `/jacman/source/css`.</span><br><span class="line">fancybox: true        ## if you use gallery post or want use fancybox please set the value to true.</span><br><span class="line">totop: true           ## if you want to scroll to top in every post set the value to true</span><br><span class="line"></span><br><span class="line">#### 自定义搜索，我用的时百度搜索</span><br><span class="line">#### Custom Search</span><br><span class="line">google_cse: </span><br><span class="line">  enable: false</span><br><span class="line">  cx:   ## e.g. 018294693190868310296:abnhpuysycw your Custom Search ID.</span><br><span class="line">## https://www.google.com/cse/ </span><br><span class="line">## To enable the custom search You must create a &quot;search&quot; folder in &apos;/source&apos; and a &quot;index.md&quot; file</span><br><span class="line">## set the &apos;front-matter&apos; as</span><br><span class="line">## layout: search </span><br><span class="line">## title: search</span><br><span class="line">## ---</span><br><span class="line">baidu_search:     ## http://zn.baidu.com/</span><br><span class="line">  enable: false</span><br><span class="line">  id:   ## e.g. &quot;783281470518440642&quot;  for your baidu search id</span><br><span class="line">  site: http://zhannei.baidu.com/cse/site  ## your can change to your site instead of the default site</span><br><span class="line">  </span><br><span class="line">tinysou_search:     ## http://tinysou.com/</span><br><span class="line">  enable: false</span><br><span class="line">  id:  ## e.g. &quot;4ac092ad8d749fdc6293&quot; for your tiny search id</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<h2 id="站内搜索和链接等还需有后期完善"><a href="#站内搜索和链接等还需有后期完善" class="headerlink" title="站内搜索和链接等还需有后期完善"></a>站内搜索和链接等还需有后期完善</h2><ul>
-<li>目前发现github屏蔽了百度站内搜索的爬虫，导致百度搜索不可使用，后期逐步完善</li>
-</ul>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1231,7 +1201,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1257,7 +1227,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>

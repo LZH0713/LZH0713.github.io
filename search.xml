@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[git分支管理常用命令]]></title>
+    <url>%2F2020%2F03%2F16%2Fgit%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[12345git remote # 列出所有远程主机git remote update origin --prune # 更新远程主机origin 整理分支git branch -r # 列出远程分支git branch -vv # 查看本地分支和远程分支对应关系git checkout -b gpf origin/gpf # 新建本地分支gpf与远程gpf分支相关联 本地切换分支/创建分支/删除分支12345git branch [name] #本地创建分支git checkout -b [name] # 本地创建分支并切换git checkout [name] # 本地切换分支git branch -d [name] # 删除本地分支 删除远程分支12git push origin :[远程分支名称] # 推送空的本地分支到远程，达到删除git branch -r -d origin/[branch-name] #删除远程分支 查看分支123git branch # 查看本地分支git branch -r # 查看远程分支git branch -a # 查看本地和远程所有分支 如果远程新建了一个分支，本地没有该分支12# 本地会新建一个分支名叫 branch_name ，会自动跟踪远程的同名分支 branch_name。git checkout --track origin/branch_name 如果本地新建了一个分支 branch_name，但是在远程没有12# 自动在远程创建一个 branch_name 分支git push --set-upstream origin branch_name 合并分支12345678# 首先切换到本地master分支上git checkout master# 如果是多人开发的话需要把远程master上的代码pull下来git pull [origin master]# 然后我们把dev分支的代码合并到master上git merge dev# 然后查看状态git status 转载至：https://www.cnblogs.com/aaron-agu/p/10454788.html]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[打包问题：roadhog build from UglifyJs]]></title>
     <url>%2F2020%2F03%2F13%2F%E6%89%93%E5%8C%85%E9%97%AE%E9%A2%98%EF%BC%9Aroadhog-build-from-UglifyJs%2F</url>
     <content type="text"><![CDATA[Error 0.0f3f4c41.async.js from UglifyJses5-imcompatible-versionses5-imcompatible-versions，用于收集 uglify 压缩有问题的 npm 包版本。然后再提供配套工具，自动 resolve 到项目里有问题的 npm 包路径，添加到 babel-loader 的 include 参数里。 roadhog确保 roadhog 在 2.4.0-beta.3 或以上，然后在 .webpackrc 里配： 123export default &#123; es5ImcompatibleVersions: true,&#125; 转载至：https://github.com/sorrycc/blog/issues/68]]></content>
