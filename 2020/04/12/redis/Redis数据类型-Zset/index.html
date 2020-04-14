@@ -55,18 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="背景​    在前段时间换了Macbook Pro，和公司的办公环境冲突啦，必须采用代理来处理办公环境的问题，这里总结我涉及到的代理那些事。 ​    在换电脑之前，都是用Windows的笔记本，每次办公都是必须使用EasyConnect打开vpn连接到公司服务，比如使用公司的管理系统，开发数据库，项目管理仓库（svn,git），公司邮箱IBM等等。在换了新电脑Macbook Pro后，发现Eas">
+  <meta name="description" content="Zset(有序集合)在set的基础上，添加了一个计数位 zdd k1 score1 v1 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748zadd # 为某个key指定序号添加一个值zrange # 获取某个key所有者127.0.0.1:6379&amp;gt; zadd myz">
+<meta name="keywords" content="Redis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="代理那些事">
-<meta property="og:url" content="http://yoursite.com/2019/09/08/代理那些事/index.html">
+<meta property="og:title" content="Redis五大数据类型-Zset">
+<meta property="og:url" content="http://yoursite.com/2020/04/12/redis/Redis数据类型-Zset/index.html">
 <meta property="og:site_name" content="LZH0713">
-<meta property="og:description" content="背景​    在前段时间换了Macbook Pro，和公司的办公环境冲突啦，必须采用代理来处理办公环境的问题，这里总结我涉及到的代理那些事。 ​    在换电脑之前，都是用Windows的笔记本，每次办公都是必须使用EasyConnect打开vpn连接到公司服务，比如使用公司的管理系统，开发数据库，项目管理仓库（svn,git），公司邮箱IBM等等。在换了新电脑Macbook Pro后，发现Eas">
+<meta property="og:description" content="Zset(有序集合)在set的基础上，添加了一个计数位 zdd k1 score1 v1 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748zadd # 为某个key指定序号添加一个值zrange # 获取某个key所有者127.0.0.1:6379&amp;gt; zadd myz">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-03T09:05:48.463Z">
+<meta property="og:updated_time" content="2020-04-12T12:17:46.554Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="代理那些事">
-<meta name="twitter:description" content="背景​    在前段时间换了Macbook Pro，和公司的办公环境冲突啦，必须采用代理来处理办公环境的问题，这里总结我涉及到的代理那些事。 ​    在换电脑之前，都是用Windows的笔记本，每次办公都是必须使用EasyConnect打开vpn连接到公司服务，比如使用公司的管理系统，开发数据库，项目管理仓库（svn,git），公司邮箱IBM等等。在换了新电脑Macbook Pro后，发现Eas">
-  <link rel="canonical" href="http://yoursite.com/2019/09/08/代理那些事/">
+<meta name="twitter:title" content="Redis五大数据类型-Zset">
+<meta name="twitter:description" content="Zset(有序集合)在set的基础上，添加了一个计数位 zdd k1 score1 v1 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748zadd # 为某个key指定序号添加一个值zrange # 获取某个key所有者127.0.0.1:6379&amp;gt; zadd myz">
+  <link rel="canonical" href="http://yoursite.com/2020/04/12/redis/Redis数据类型-Zset/">
 
 
 <script id="page-configurations">
@@ -80,7 +81,7 @@
   };
 </script>
 
-  <title>代理那些事 | LZH0713</title>
+  <title>Redis五大数据类型-Zset | LZH0713</title>
   
 
 
@@ -255,7 +256,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/08/代理那些事/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/12/redis/Redis数据类型-Zset/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LZH0713">
@@ -267,7 +268,7 @@
       <meta itemprop="name" content="LZH0713">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">代理那些事
+        <h1 class="post-title" itemprop="name headline">Redis五大数据类型-Zset
 
           
         </h1>
@@ -283,20 +284,25 @@
                 
               
 
-              <time title="创建时间：2019-09-08 12:20:23" itemprop="dateCreated datePublished" datetime="2019-09-08T12:20:23+08:00">2019-09-08</time>
+              <time title="创建时间：2020-04-12 18:32:34 / 修改时间：20:17:46" itemprop="dateCreated datePublished" datetime="2020-04-12T18:32:34+08:00">2020-04-12</time>
             </span>
           
             
 
             
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-03 17:05:48" itemprop="dateModified" datetime="2019-10-03T17:05:48+08:00">2019-10-03</time>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
               </span>
-            
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -310,10 +316,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>​    在前段时间换了Macbook Pro，和公司的办公环境冲突啦，必须采用代理来处理办公环境的问题，这里总结我涉及到的代理那些事。</p>
-<p>​    在换电脑之前，都是用Windows的笔记本，每次办公都是必须使用EasyConnect打开vpn连接到公司服务，比如使用公司的管理系统，开发数据库，项目管理仓库（svn,git），公司邮箱IBM等等。在换了新电脑Macbook Pro后，发现EasyConnect使用不到了，经过查询了解才发现，safari升级到12之后已经不支持EasyConnect旧服务了，vpn服务端只有升级才能让Macbook Pro使用，经过一番了解，之前同事就遇到这个问题，据说联系公司看能不能升级，结果。。。得到的回复是不升级，建议装虚拟机或者使用Windows电脑。两种方式我都不想啊，总不能我的新电脑没得发挥吧，之后就走上了折腾之路了。</p>
-<h2 id="Nginx正向代理"><a href="#Nginx正向代理" class="headerlink" title="Nginx正向代理"></a>Nginx正向代理</h2><p>​    </p>
-<h2 id="终端代理"><a href="#终端代理" class="headerlink" title="终端代理"></a>终端代理</h2><h2 id="maven代理"><a href="#maven代理" class="headerlink" title="maven代理"></a>maven代理</h2><h2 id="git代理"><a href="#git代理" class="headerlink" title="git代理"></a>git代理</h2><h2 id="基于Nginx反向代理实现数据库连接"><a href="#基于Nginx反向代理实现数据库连接" class="headerlink" title="基于Nginx反向代理实现数据库连接"></a>基于Nginx反向代理实现数据库连接</h2>
+        <h2 id="Zset-有序集合"><a href="#Zset-有序集合" class="headerlink" title="Zset(有序集合)"></a>Zset(有序集合)</h2><p>在set的基础上，添加了一个计数位 zdd k1 score1 v1</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">zadd <span class="comment"># 为某个key指定序号添加一个值</span></span><br><span class="line">zrange <span class="comment"># 获取某个key所有者</span></span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; zadd myzset 1 hello</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">127.0.0.1:6379&gt; zadd myzset 2 world</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">127.0.0.1:6379&gt; zrange myzset 0 -1</span><br><span class="line">1) <span class="string">"hello"</span></span><br><span class="line">2) <span class="string">"world"</span></span><br><span class="line"><span class="comment">#################</span></span><br><span class="line">zrange <span class="comment"># 排序，按score从小到大</span></span><br><span class="line">zrevrange <span class="comment"># 排序，score从大到小</span></span><br><span class="line">zrangebyscore <span class="comment"># 指定范围排序，从小到大</span></span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; zadd myset 80 xiaoming</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">127.0.0.1:6379&gt; zadd myset 88 xiaohong</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">127.0.0.1:6379&gt; zadd myset 100 xiaoniu</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">127.0.0.1:6379&gt; zrange myset 0 -1 <span class="comment"># 排序，按score从小到大</span></span><br><span class="line">1) <span class="string">"xiaoming"</span></span><br><span class="line">2) <span class="string">"xiaohong"</span></span><br><span class="line">3) <span class="string">"xiaoniu"</span></span><br><span class="line">127.0.0.1:6379&gt; zrevrange myset 0 -1 <span class="comment"># 排序，score从大到小</span></span><br><span class="line">1) <span class="string">"xiaoniu"</span></span><br><span class="line">2) <span class="string">"xiaohong"</span></span><br><span class="line">3) <span class="string">"xiaoming"</span></span><br><span class="line">127.0.0.1:6379&gt; zrangebyscore myset -inf +inf <span class="comment"># 无穷小到无穷大，小小到大</span></span><br><span class="line">1) <span class="string">"xiaoming"</span></span><br><span class="line">2) <span class="string">"xiaohong"</span></span><br><span class="line">3) <span class="string">"xiaoniu"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#################</span></span><br><span class="line">zrem 移除有序集合指定元素</span><br><span class="line">zcard 获取有序集合个数</span><br><span class="line">zcount 获取指定区间数量</span><br><span class="line"></span><br><span class="line"><span class="comment">#################</span></span><br><span class="line">127.0.0.1:6379&gt; zcard myset</span><br><span class="line">(<span class="built_in">integer</span>) 5</span><br><span class="line">127.0.0.1:6379&gt; zrem myset xiaoming <span class="comment"># 移除有序集合指定元素</span></span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">127.0.0.1:6379&gt; zcard myset <span class="comment"># 获取有序集合个数</span></span><br><span class="line">(<span class="built_in">integer</span>) 4</span><br><span class="line">127.0.0.1:6379&gt; zcount myset 80 100 <span class="comment">#获取指定区间数量</span></span><br><span class="line">(<span class="built_in">integer</span>) 2</span><br></pre></td></tr></table></figure>
+
+<p>可用于成绩记录，工资记录，排序并快速实现一下区间操作</p>
+<p>参考官方文档：<a href="https://redis.io/commands" target="_blank" rel="noopener">https://redis.io/commands</a></p>
+
     </div>
 
     
@@ -323,14 +331,23 @@
       
 
       <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Redis/" rel="tag"># Redis</a>
+            
+          </div>
+        
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/01/java/javaweb反射实例无法注入问题/" rel="next" title="javaweb反射实例无法注入问题">
-                  <i class="fa fa-chevron-left"></i> javaweb反射实例无法注入问题
+                <a href="/2020/04/12/redis/Redis数据类型-Hash/" rel="next" title="Redis五大数据类型-Hash">
+                  <i class="fa fa-chevron-left"></i> Redis五大数据类型-Hash
                 </a>
               
             </div>
@@ -338,10 +355,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/09/28/springboot/SpringBoot整理SpringSecurity后出现Post请求403的问题/" rel="prev" title="SpringBoot整合SpringSecurity后出现Post请求403的问题">
-                  SpringBoot整合SpringSecurity后出现Post请求403的问题 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -390,7 +403,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx正向代理"><span class="nav-number">2.</span> <span class="nav-text">Nginx正向代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#终端代理"><span class="nav-number">3.</span> <span class="nav-text">终端代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maven代理"><span class="nav-number">4.</span> <span class="nav-text">maven代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git代理"><span class="nav-number">5.</span> <span class="nav-text">git代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于Nginx反向代理实现数据库连接"><span class="nav-number">6.</span> <span class="nav-text">基于Nginx反向代理实现数据库连接</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Zset-有序集合"><span class="nav-number">1.</span> <span class="nav-text">Zset(有序集合)</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->

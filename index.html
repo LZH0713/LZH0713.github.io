@@ -253,6 +253,96 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/12/redis/Redis数据类型-Zset/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LZH0713">
+      <meta itemprop="description" content="丰富我的程序员生活,努力做更好">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LZH0713">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/04/12/redis/Redis数据类型-Zset/" class="post-title-link" itemprop="url">Redis五大数据类型-Zset</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-04-12 18:32:34 / 修改时间：20:17:46" itemprop="dateCreated datePublished" datetime="2020-04-12T18:32:34+08:00">2020-04-12</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Zset-有序集合"><a href="#Zset-有序集合" class="headerlink" title="Zset(有序集合)"></a>Zset(有序集合)</h2><p>在set的基础上，添加了一个计数位 zdd k1 score1 v1</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">zadd <span class="comment"># 为某个key指定序号添加一个值</span></span><br><span class="line">zrange <span class="comment"># 获取某个key所有者</span></span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; zadd myzset 1 hello</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">127.0.0.1:6379&gt; zadd myzset 2 world</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">127.0.0.1:6379&gt; zrange myzset 0 -1</span><br><span class="line">1) <span class="string">"hello"</span></span><br><span class="line">2) <span class="string">"world"</span></span><br><span class="line"><span class="comment">#################</span></span><br><span class="line">zrange <span class="comment"># 排序，按score从小到大</span></span><br><span class="line">zrevrange <span class="comment"># 排序，score从大到小</span></span><br><span class="line">zrangebyscore <span class="comment"># 指定范围排序，从小到大</span></span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; zadd myset 80 xiaoming</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">127.0.0.1:6379&gt; zadd myset 88 xiaohong</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">127.0.0.1:6379&gt; zadd myset 100 xiaoniu</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">127.0.0.1:6379&gt; zrange myset 0 -1 <span class="comment"># 排序，按score从小到大</span></span><br><span class="line">1) <span class="string">"xiaoming"</span></span><br><span class="line">2) <span class="string">"xiaohong"</span></span><br><span class="line">3) <span class="string">"xiaoniu"</span></span><br><span class="line">127.0.0.1:6379&gt; zrevrange myset 0 -1 <span class="comment"># 排序，score从大到小</span></span><br><span class="line">1) <span class="string">"xiaoniu"</span></span><br><span class="line">2) <span class="string">"xiaohong"</span></span><br><span class="line">3) <span class="string">"xiaoming"</span></span><br><span class="line">127.0.0.1:6379&gt; zrangebyscore myset -inf +inf <span class="comment"># 无穷小到无穷大，小小到大</span></span><br><span class="line">1) <span class="string">"xiaoming"</span></span><br><span class="line">2) <span class="string">"xiaohong"</span></span><br><span class="line">3) <span class="string">"xiaoniu"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#################</span></span><br><span class="line">zrem 移除有序集合指定元素</span><br><span class="line">zcard 获取有序集合个数</span><br><span class="line">zcount 获取指定区间数量</span><br><span class="line"></span><br><span class="line"><span class="comment">#################</span></span><br><span class="line">127.0.0.1:6379&gt; zcard myset</span><br><span class="line">(<span class="built_in">integer</span>) 5</span><br><span class="line">127.0.0.1:6379&gt; zrem myset xiaoming <span class="comment"># 移除有序集合指定元素</span></span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">127.0.0.1:6379&gt; zcard myset <span class="comment"># 获取有序集合个数</span></span><br><span class="line">(<span class="built_in">integer</span>) 4</span><br><span class="line">127.0.0.1:6379&gt; zcount myset 80 100 <span class="comment">#获取指定区间数量</span></span><br><span class="line">(<span class="built_in">integer</span>) 2</span><br></pre></td></tr></table></figure>
+
+<p>可用于成绩记录，工资记录，排序并快速实现一下区间操作</p>
+<p>参考官方文档：<a href="https://redis.io/commands" target="_blank" rel="noopener">https://redis.io/commands</a></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/12/redis/Redis数据类型-Hash/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -282,7 +372,7 @@
                 
               
 
-              <time title="创建时间：2020-04-12 18:32:34 / 修改时间：19:12:44" itemprop="dateCreated datePublished" datetime="2020-04-12T18:32:34+08:00">2020-04-12</time>
+              <time title="创建时间：2020-04-12 18:32:34 / 修改时间：20:00:29" itemprop="dateCreated datePublished" datetime="2020-04-12T18:32:34+08:00">2020-04-12</time>
             </span>
           
             
@@ -320,6 +410,7 @@
 <p>Hash 适合对象存储，比如设置某个用户的信息 ,String适合存储单个信息</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hmset user:1 name lzh0713 age 25</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; hmset user:2 name <span class="built_in">test</span> age 30</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; hgetall user:1</span><br><span class="line">1) <span class="string">"name"</span></span><br><span class="line">2) <span class="string">"lzh0713"</span></span><br><span class="line">3) <span class="string">"age"</span></span><br><span class="line">4) <span class="string">"25"</span></span><br><span class="line">127.0.0.1:6379&gt; hgetall user:2</span><br><span class="line">1) <span class="string">"name"</span></span><br><span class="line">2) <span class="string">"test"</span></span><br><span class="line">3) <span class="string">"age"</span></span><br><span class="line">4) <span class="string">"30"</span></span><br></pre></td></tr></table></figure>
 
+<p>参考官方文档：<a href="https://redis.io/commands" target="_blank" rel="noopener">https://redis.io/commands</a></p>
 
         
       
@@ -1155,103 +1246,6 @@
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/01/java/javaweb反射实例无法注入问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LZH0713">
-      <meta itemprop="description" content="丰富我的程序员生活,努力做更好">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LZH0713">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/09/01/java/javaweb反射实例无法注入问题/" class="post-title-link" itemprop="url">javaweb反射实例无法注入问题</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-01 13:05:55" itemprop="dateCreated datePublished" datetime="2019-09-01T13:05:55+08:00">2019-09-01</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-11 21:43:16" itemprop="dateModified" datetime="2020-04-11T21:43:16+08:00">2020-04-11</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="无法注入的情况"><a href="#无法注入的情况" class="headerlink" title="无法注入的情况"></a>无法注入的情况</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Class clazz = Class.forName(handlerPkgPath);</span><br><span class="line">Objeact o = clazz.newInstance();</span><br></pre></td></tr></table></figure>
-
-<h2 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">private ApplicationContext context;</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">Objeact o = context.getAutowireCapableBeanFactory().createBean(clazz, AutowireCapableBeanFactory.AUTOWIRE_BY_TYPE, true);</span><br></pre></td></tr></table></figure>
-
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1301,7 +1295,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
