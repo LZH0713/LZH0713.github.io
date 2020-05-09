@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="平台无关性 一次编译，到处运行。 扮演者重要的角色的有Java语言规范、Class文件、Java虚拟机（JVM）等。 Java语言规范：例如规定int类型是4字节，不像C/C++中，基本数据类型是由它的占位宽度决定的，占位宽度则是由所在平台决定的。所以，在不同的平台中，对于同一个C++程序的编译结果会出现不同的行为。 Class文件：编译成Class文件的语言不只是java,还有Groovy、Sc">
-<meta name="keywords" content="JVM">
+  <meta name="description" content="背景 Springboot应用搭建的定时任务模块，其中一个定时任务会单线程调用Webservice接口，数据量比较多；  启动应用后，定时任务开始执行，该接口从一开始耗时400ms，经过10分钟后700ms，慢慢会上升到3000ms  重启应用又出现这种情况，动态客户端代码调用如下   12345678910public static Object callService(String servi">
+<meta name="keywords" content="Webservice">
 <meta property="og:type" content="article">
-<meta property="og:title" content="平台无关性">
-<meta property="og:url" content="http://yoursite.com/2019/10/03/java/平台无关性/index.html">
+<meta property="og:title" content="cxf动态调用Webservice客户端越来越慢问题">
+<meta property="og:url" content="http://yoursite.com/2020/05/08/webservice/cxf动态调用Webservice客户端越来越慢问题/index.html">
 <meta property="og:site_name" content="LZH0713">
-<meta property="og:description" content="平台无关性 一次编译，到处运行。 扮演者重要的角色的有Java语言规范、Class文件、Java虚拟机（JVM）等。 Java语言规范：例如规定int类型是4字节，不像C/C++中，基本数据类型是由它的占位宽度决定的，占位宽度则是由所在平台决定的。所以，在不同的平台中，对于同一个C++程序的编译结果会出现不同的行为。 Class文件：编译成Class文件的语言不只是java,还有Groovy、Sc">
+<meta property="og:description" content="背景 Springboot应用搭建的定时任务模块，其中一个定时任务会单线程调用Webservice接口，数据量比较多；  启动应用后，定时任务开始执行，该接口从一开始耗时400ms，经过10分钟后700ms，慢慢会上升到3000ms  重启应用又出现这种情况，动态客户端代码调用如下   12345678910public static Object callService(String servi">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-03T09:08:40.152Z">
+<meta property="og:updated_time" content="2020-05-08T06:48:39.635Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="平台无关性">
-<meta name="twitter:description" content="平台无关性 一次编译，到处运行。 扮演者重要的角色的有Java语言规范、Class文件、Java虚拟机（JVM）等。 Java语言规范：例如规定int类型是4字节，不像C/C++中，基本数据类型是由它的占位宽度决定的，占位宽度则是由所在平台决定的。所以，在不同的平台中，对于同一个C++程序的编译结果会出现不同的行为。 Class文件：编译成Class文件的语言不只是java,还有Groovy、Sc">
-  <link rel="canonical" href="http://yoursite.com/2019/10/03/java/平台无关性/">
+<meta name="twitter:title" content="cxf动态调用Webservice客户端越来越慢问题">
+<meta name="twitter:description" content="背景 Springboot应用搭建的定时任务模块，其中一个定时任务会单线程调用Webservice接口，数据量比较多；  启动应用后，定时任务开始执行，该接口从一开始耗时400ms，经过10分钟后700ms，慢慢会上升到3000ms  重启应用又出现这种情况，动态客户端代码调用如下   12345678910public static Object callService(String servi">
+  <link rel="canonical" href="http://yoursite.com/2020/05/08/webservice/cxf动态调用Webservice客户端越来越慢问题/">
 
 
 <script id="page-configurations">
@@ -81,7 +81,7 @@
   };
 </script>
 
-  <title>平台无关性 | LZH0713</title>
+  <title>cxf动态调用Webservice客户端越来越慢问题 | LZH0713</title>
   
 
 
@@ -256,7 +256,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/03/java/平台无关性/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/08/webservice/cxf动态调用Webservice客户端越来越慢问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LZH0713">
@@ -268,7 +268,7 @@
       <meta itemprop="name" content="LZH0713">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">平台无关性
+        <h1 class="post-title" itemprop="name headline">cxf动态调用Webservice客户端越来越慢问题
 
           
         </h1>
@@ -284,7 +284,7 @@
                 
               
 
-              <time title="创建时间：2019-10-03 17:04:23 / 修改时间：17:08:40" itemprop="dateCreated datePublished" datetime="2019-10-03T17:04:23+08:00">2019-10-03</time>
+              <time title="创建时间：2020-05-08 19:35:20 / 修改时间：14:48:39" itemprop="dateCreated datePublished" datetime="2020-05-08T19:35:20+08:00">2020-05-08</time>
             </span>
           
             
@@ -297,7 +297,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Webservice/" itemprop="url" rel="index"><span itemprop="name">Webservice</span></a></span>
 
                 
                 
@@ -316,13 +316,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="平台无关性"><a href="#平台无关性" class="headerlink" title="平台无关性"></a>平台无关性</h2><ol>
-<li>一次编译，到处运行。</li>
-<li>扮演者重要的角色的有Java语言规范、Class文件、Java虚拟机（JVM）等。</li>
-<li>Java语言规范：例如规定int类型是4字节，不像C/C++中，基本数据类型是由它的占位宽度决定的，占位宽度则是由所在平台决定的。所以，在不同的平台中，对于同一个C++程序的编译结果会出现不同的行为。</li>
-<li>Class文件：编译成Class文件的语言不只是java,还有Groovy、Scala、Jython等。</li>
-<li>Java虚拟机（JVM）：编译器，JVM平台有关性，不同平台有对应的JVM，主要作用是把Class文件编译成只包含0和1的二进制文件，供机器识别。</li>
-</ol>
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><ul>
+<li><p>Springboot应用搭建的定时任务模块，其中一个定时任务会单线程调用Webservice接口，数据量比较多；</p>
+</li>
+<li><p>启动应用后，定时任务开始执行，该接口从一开始耗时400ms，经过10分钟后700ms，慢慢会上升到3000ms</p>
+</li>
+<li><p>重启应用又出现这种情况，动态客户端代码调用如下</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title">callService</span><span class="params">(String servicePath, String serviceName, String requestXml,String userName,String passWord)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        JaxWsDynamicClientFactory dcflient = JaxWsDynamicClientFactory.newInstance();</span><br><span class="line"></span><br><span class="line">        Client client = dcflient.createClient(servicePath);</span><br><span class="line">				<span class="comment">// 自定义的鉴权过滤器</span></span><br><span class="line">        client.getOutInterceptors().add(<span class="keyword">new</span> ClientLoginInterceptor(userName, passWord));</span><br><span class="line"></span><br><span class="line">        Object[] objects = client.invoke(serviceName, requestXml);</span><br><span class="line">        <span class="keyword">return</span> objects[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><ul>
+<li>发现是数据量较多频繁调用，每次都要新建一个工厂实例，并且创建client需要与服务器握手导致的</li>
+<li>查询org.apache.cxf.endpoint.Client接口中提供了销毁的方法destroy(),优化后</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title">callService</span><span class="params">(String servicePath, String serviceName, String requestXml,String userName,String passWord)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        JaxWsDynamicClientFactory dcflient = JaxWsDynamicClientFactory.newInstance();</span><br><span class="line"></span><br><span class="line">        Client client = dcflient.createClient(servicePath);</span><br><span class="line"></span><br><span class="line">        client.getOutInterceptors().add(<span class="keyword">new</span> ClientLoginInterceptor(userName, passWord));</span><br><span class="line"></span><br><span class="line">        Object[] objects = client.invoke(serviceName, requestXml);</span><br><span class="line">  			<span class="comment">// 使用完销毁</span></span><br><span class="line">  			client.destroy();</span><br><span class="line">        <span class="keyword">return</span> objects[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><ul>
+<li>数据量较多的情况下，频繁创建新的实例和服务器握手，损耗了太大性能了，缓存客户端对象</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, Client&gt; wsClientMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title">callService</span><span class="params">(String servicePath, String serviceName, String requestXml,String userName,String passWord)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        String key = servicePath + <span class="string">":"</span> + userName + <span class="string">":"</span> + passWord;</span><br><span class="line">        Client client = wsClientMap.get(key);</span><br><span class="line">        <span class="keyword">if</span> (client == <span class="keyword">null</span>) &#123;</span><br><span class="line">            JaxWsDynamicClientFactory dcflient = JaxWsDynamicClientFactory.newInstance();</span><br><span class="line">            client = dcflient.createClient(servicePath);</span><br><span class="line">            client.getOutInterceptors().add(<span class="keyword">new</span> ClientLoginInterceptor(userName, passWord));</span><br><span class="line">            wsClientMap.put(key, client);</span><br><span class="line">        &#125;</span><br><span class="line">        Object[] objects = client.invoke(serviceName, requestXml);</span><br><span class="line">        <span class="keyword">return</span> objects[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -338,7 +352,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/JVM/" rel="tag"># JVM</a>
+              <a href="/tags/Webservice/" rel="tag"># Webservice</a>
             
           </div>
         
@@ -348,8 +362,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/28/springboot/SpringBoot整理SpringSecurity后出现Post请求403的问题/" rel="next" title="SpringBoot整合SpringSecurity后出现Post请求403的问题">
-                  <i class="fa fa-chevron-left"></i> SpringBoot整合SpringSecurity后出现Post请求403的问题
+                <a href="/2020/04/12/redis/Redis数据类型-Zset/" rel="next" title="Redis五大数据类型-Zset">
+                  <i class="fa fa-chevron-left"></i> Redis五大数据类型-Zset
                 </a>
               
             </div>
@@ -357,10 +371,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/10/03/java/面向过程和面向对象/" rel="prev" title="面向过程和面向对象">
-                  面向过程和面向对象 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -409,7 +419,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#平台无关性"><span class="nav-number">1.</span> <span class="nav-text">平台无关性</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决"><span class="nav-number">2.</span> <span class="nav-text">解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化"><span class="nav-number">3.</span> <span class="nav-text">优化</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
