@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="背景 Springboot应用搭建的定时任务模块，其中一个定时任务会单线程调用Webservice接口，数据量比较多；  启动应用后，定时任务开始执行，该接口从一开始耗时400ms，经过10分钟后700ms，慢慢会上升到3000ms  重启应用又出现这种情况，动态客户端代码调用如下   12345678910public static Object callService(String servi">
-<meta name="keywords" content="Webservice">
+  <meta name="description" content="反射机制JAVA 反射机制是在运行状态中，对于==任意一个类==，都能够知道这个类的==所有属性和方法== 获取 Class 对象的两种方式 知道具体类的情况下可以使用： 1Class alunbarClass = TargetObject.class;  通过 Class.forName()传入类的路径获取： 1Class alunbarClass1 = Class.forName(&amp;quot;">
+<meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="cxf动态调用Webservice客户端越来越慢问题">
-<meta property="og:url" content="http://yoursite.com/2020/05/08/webservice/cxf动态调用Webservice客户端越来越慢问题/index.html">
+<meta property="og:title" content="javaweb反射机制基础">
+<meta property="og:url" content="http://yoursite.com/2020/06/04/java/Untitled/index.html">
 <meta property="og:site_name" content="LZH0713">
-<meta property="og:description" content="背景 Springboot应用搭建的定时任务模块，其中一个定时任务会单线程调用Webservice接口，数据量比较多；  启动应用后，定时任务开始执行，该接口从一开始耗时400ms，经过10分钟后700ms，慢慢会上升到3000ms  重启应用又出现这种情况，动态客户端代码调用如下   12345678910public static Object callService(String servi">
+<meta property="og:description" content="反射机制JAVA 反射机制是在运行状态中，对于==任意一个类==，都能够知道这个类的==所有属性和方法== 获取 Class 对象的两种方式 知道具体类的情况下可以使用： 1Class alunbarClass = TargetObject.class;  通过 Class.forName()传入类的路径获取： 1Class alunbarClass1 = Class.forName(&amp;quot;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-08T06:48:39.635Z">
+<meta property="og:updated_time" content="2020-06-04T12:41:18.532Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cxf动态调用Webservice客户端越来越慢问题">
-<meta name="twitter:description" content="背景 Springboot应用搭建的定时任务模块，其中一个定时任务会单线程调用Webservice接口，数据量比较多；  启动应用后，定时任务开始执行，该接口从一开始耗时400ms，经过10分钟后700ms，慢慢会上升到3000ms  重启应用又出现这种情况，动态客户端代码调用如下   12345678910public static Object callService(String servi">
-  <link rel="canonical" href="http://yoursite.com/2020/05/08/webservice/cxf动态调用Webservice客户端越来越慢问题/">
+<meta name="twitter:title" content="javaweb反射机制基础">
+<meta name="twitter:description" content="反射机制JAVA 反射机制是在运行状态中，对于==任意一个类==，都能够知道这个类的==所有属性和方法== 获取 Class 对象的两种方式 知道具体类的情况下可以使用： 1Class alunbarClass = TargetObject.class;  通过 Class.forName()传入类的路径获取： 1Class alunbarClass1 = Class.forName(&amp;quot;">
+  <link rel="canonical" href="http://yoursite.com/2020/06/04/java/Untitled/">
 
 
 <script id="page-configurations">
@@ -81,7 +81,7 @@
   };
 </script>
 
-  <title>cxf动态调用Webservice客户端越来越慢问题 | LZH0713</title>
+  <title>javaweb反射机制基础 | LZH0713</title>
   
 
 
@@ -256,7 +256,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/08/webservice/cxf动态调用Webservice客户端越来越慢问题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/04/java/Untitled/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LZH0713">
@@ -268,7 +268,7 @@
       <meta itemprop="name" content="LZH0713">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">cxf动态调用Webservice客户端越来越慢问题
+        <h1 class="post-title" itemprop="name headline">javaweb反射机制基础
 
           
         </h1>
@@ -284,7 +284,7 @@
                 
               
 
-              <time title="创建时间：2020-05-08 19:35:20 / 修改时间：14:48:39" itemprop="dateCreated datePublished" datetime="2020-05-08T19:35:20+08:00">2020-05-08</time>
+              <time title="创建时间：2020-06-04 20:05:55 / 修改时间：20:41:18" itemprop="dateCreated datePublished" datetime="2020-06-04T20:05:55+08:00">2020-06-04</time>
             </span>
           
             
@@ -297,7 +297,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Webservice/" itemprop="url" rel="index"><span itemprop="name">Webservice</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
 
                 
                 
@@ -316,27 +316,37 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><ul>
-<li><p>Springboot应用搭建的定时任务模块，其中一个定时任务会单线程调用Webservice接口，数据量比较多；</p>
+        <h2 id="反射机制"><a href="#反射机制" class="headerlink" title="反射机制"></a>反射机制</h2><p>JAVA 反射机制是在运行状态中，对于==任意一个类==，都能够知道这个类的==所有属性和方法==</p>
+<h2 id="获取-Class-对象的两种方式"><a href="#获取-Class-对象的两种方式" class="headerlink" title="获取 Class 对象的两种方式"></a>获取 Class 对象的两种方式</h2><ol>
+<li><p>知道具体类的情况下可以使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class alunbarClass = TargetObject.class;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>启动应用后，定时任务开始执行，该接口从一开始耗时400ms，经过10分钟后700ms，慢慢会上升到3000ms</p>
+<li><p>通过 Class.forName()传入类的路径获取：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class alunbarClass1 = Class.forName(&quot;cn.javaguide.TargetObject&quot;);</span><br></pre></td></tr></table></figure>
+
 </li>
-<li><p>重启应用又出现这种情况，动态客户端代码调用如下</p>
+</ol>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 获取TargetObject类的Class对象并且创建TargetObject类实例</span><br><span class="line"> */</span><br><span class="line">Class&lt;?&gt; tagetClass = Class.forName(&quot;cn.javaguide.TargetObject&quot;);</span><br><span class="line">TargetObject targetObject = (TargetObject) tagetClass.newInstance();</span><br><span class="line">/**</span><br><span class="line"> * 获取所有类中所有定义的方法</span><br><span class="line"> */</span><br><span class="line">Method[] methods = tagetClass.getDeclaredMethods();</span><br><span class="line">for (Method method : methods) &#123;</span><br><span class="line">    System.out.println(method.getName());</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * 获取指定方法并调用</span><br><span class="line"> */</span><br><span class="line">Method publicMethod = tagetClass.getDeclaredMethod(&quot;publicMethod&quot;,</span><br><span class="line">        String.class);</span><br><span class="line"></span><br><span class="line">publicMethod.invoke(targetObject, &quot;JavaGuide&quot;);</span><br><span class="line">/**</span><br><span class="line"> * 获取指定参数并对参数进行修改</span><br><span class="line"> */</span><br><span class="line">Field field = tagetClass.getDeclaredField(&quot;value&quot;);</span><br><span class="line">//为了对类中的参数进行修改我们取消安全检查</span><br><span class="line">field.setAccessible(true);</span><br><span class="line">field.set(targetObject, &quot;JavaGuide&quot;);</span><br><span class="line">/**</span><br><span class="line"> * 调用 private 方法</span><br><span class="line"> */</span><br><span class="line">Method privateMethod = tagetClass.getDeclaredMethod(&quot;privateMethod&quot;);</span><br><span class="line">//为了调用private方法我们取消安全检查</span><br><span class="line">privateMethod.setAccessible(true);</span><br><span class="line">privateMethod.invoke(targetObject);</span><br></pre></td></tr></table></figure>
+
+<h2 id="反射机制优缺点"><a href="#反射机制优缺点" class="headerlink" title="反射机制优缺点"></a>反射机制优缺点</h2><ul>
+<li>优点： 运行期类型的判断，动态加载类，提高代码灵活度。通常公司业务框架设计都会使用到。</li>
+<li>缺点： <ul>
+<li>性能瓶颈：反射相当于一系列解释操作，通知 JVM 要做的事情，性能比直接的 java 代码要慢很多。</li>
+<li>安全问题，让我们可以动态操作改变类的属性同时也增加了类的安全隐患。</li>
+</ul>
 </li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title">callService</span><span class="params">(String servicePath, String serviceName, String requestXml,String userName,String passWord)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        JaxWsDynamicClientFactory dcflient = JaxWsDynamicClientFactory.newInstance();</span><br><span class="line"></span><br><span class="line">        Client client = dcflient.createClient(servicePath);</span><br><span class="line">				<span class="comment">// 自定义的鉴权过滤器</span></span><br><span class="line">        client.getOutInterceptors().add(<span class="keyword">new</span> ClientLoginInterceptor(userName, passWord));</span><br><span class="line"></span><br><span class="line">        Object[] objects = client.invoke(serviceName, requestXml);</span><br><span class="line">        <span class="keyword">return</span> objects[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><ul>
-<li>发现是数据量较多频繁调用，每次都要新建一个工厂实例，并且创建client需要与服务器握手导致的</li>
-<li>查询org.apache.cxf.endpoint.Client接口中提供了销毁的方法destroy(),优化后</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title">callService</span><span class="params">(String servicePath, String serviceName, String requestXml,String userName,String passWord)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        JaxWsDynamicClientFactory dcflient = JaxWsDynamicClientFactory.newInstance();</span><br><span class="line"></span><br><span class="line">        Client client = dcflient.createClient(servicePath);</span><br><span class="line"></span><br><span class="line">        client.getOutInterceptors().add(<span class="keyword">new</span> ClientLoginInterceptor(userName, passWord));</span><br><span class="line"></span><br><span class="line">        Object[] objects = client.invoke(serviceName, requestXml);</span><br><span class="line">  			<span class="comment">// 使用完销毁</span></span><br><span class="line">  			client.destroy();</span><br><span class="line">        <span class="keyword">return</span> objects[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><ul>
-<li>数据量较多的情况下，频繁创建新的实例和服务器握手，损耗了太大性能了，缓存客户端对象</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, Client&gt; wsClientMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title">callService</span><span class="params">(String servicePath, String serviceName, String requestXml,String userName,String passWord)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        String key = servicePath + <span class="string">":"</span> + userName + <span class="string">":"</span> + passWord;</span><br><span class="line">        Client client = wsClientMap.get(key);</span><br><span class="line">        <span class="keyword">if</span> (client == <span class="keyword">null</span>) &#123;</span><br><span class="line">            JaxWsDynamicClientFactory dcflient = JaxWsDynamicClientFactory.newInstance();</span><br><span class="line">            client = dcflient.createClient(servicePath);</span><br><span class="line">            client.getOutInterceptors().add(<span class="keyword">new</span> ClientLoginInterceptor(userName, passWord));</span><br><span class="line">            wsClientMap.put(key, client);</span><br><span class="line">        &#125;</span><br><span class="line">        Object[] objects = client.invoke(serviceName, requestXml);</span><br><span class="line">        <span class="keyword">return</span> objects[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
+<h2 id="反射的应用场景"><a href="#反射的应用场景" class="headerlink" title="反射的应用场景"></a>反射的应用场景</h2><ol>
+<li><p>我们在使用 JDBC 连接数据库时使用 Class.forName()通过反射加载数据库的驱动程序；</p>
+</li>
+<li><p>Spring 框架的 IOC（动态加载管理 Bean）创建对象以及 AOP（动态代理）功能都和反射有联系；</p>
+</li>
+<li><p>动态配置实例的属性；</p>
+</li>
+<li><p>模版设计模式等，解藕方式的一种</p>
+</li>
+</ol>
+<p>转载：<a href="https://snailclimb.gitee.io/javaguide/#/docs/java/basic/reflection" target="_blank" rel="noopener">https://snailclimb.gitee.io/javaguide/#/docs/java/basic/reflection</a></p>
 
     </div>
 
@@ -352,7 +362,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/Webservice/" rel="tag"># Webservice</a>
+              <a href="/tags/java/" rel="tag"># java</a>
             
           </div>
         
@@ -362,8 +372,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2020/04/12/redis/Redis数据类型-Zset/" rel="next" title="Redis五大数据类型-Zset">
-                  <i class="fa fa-chevron-left"></i> Redis五大数据类型-Zset
+                <a href="/2020/05/25/springboot/Spring Data JPA one to one 共享主键关联/" rel="next" title="">
+                  <i class="fa fa-chevron-left"></i> 
                 </a>
               
             </div>
@@ -371,10 +381,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2020/05/25/springboot/Spring Data JPA one to one 共享主键关联/" rel="prev" title="">
-                   <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -423,7 +429,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决"><span class="nav-number">2.</span> <span class="nav-text">解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化"><span class="nav-number">3.</span> <span class="nav-text">优化</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#反射机制"><span class="nav-number">1.</span> <span class="nav-text">反射机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取-Class-对象的两种方式"><span class="nav-number">2.</span> <span class="nav-text">获取 Class 对象的两种方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用方法"><span class="nav-number">3.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#反射机制优缺点"><span class="nav-number">4.</span> <span class="nav-text">反射机制优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#反射的应用场景"><span class="nav-number">5.</span> <span class="nav-text">反射的应用场景</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
