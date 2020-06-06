@@ -253,6 +253,113 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/06/算法/数组中最长连续序列/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LZH0713">
+      <meta itemprop="description" content="丰富我的程序员生活,努力做更好">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LZH0713">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/06/06/算法/数组中最长连续序列/" class="post-title-link" itemprop="url">数组中最长连续序列</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-06-06 00:00:00 / 修改时间：22:25:19" itemprop="dateCreated datePublished" datetime="2020-06-06T00:00:00+08:00">2020-06-06</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><blockquote>
+<p>给定一个未排序的整数数组，找出最长连续序列的长度。</p>
+</blockquote>
+<p>要求算法的时间复杂度为 O(n)。</p>
+<p>示例:</p>
+<p>输入: [100, 4, 200, 1, 3, 2]<br>输出: 4<br>解释: 最长连续序列是 [1, 2, 3, 4]。它的长度为 4。</p>
+<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/longest-consecutive-sequence" target="_blank" rel="noopener">https://leetcode-cn.com/problems/longest-consecutive-sequence</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h2 id="思路整理"><a href="#思路整理" class="headerlink" title="思路整理"></a>思路整理</h2><ol>
+<li>边界是否影响结果<ol>
+<li>整型数组中的长度为0时，结果直接为0</li>
+</ol>
+</li>
+<li>思路<ol>
+<li>数组可能会重复，首先需要去重，利用Set集合去重</li>
+<li>找到序列的开始值num，满足num-1不存在，num+1存在</li>
+<li>num++直到不存在的，经历的次数即为序列数</li>
+<li>可能存在多个序列，取最长的序列长度</li>
+</ol>
+</li>
+</ol>
+<h2 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 测试样例</span></span><br><span class="line"><span class="comment">* []</span></span><br><span class="line"><span class="comment">* [0]</span></span><br><span class="line"><span class="comment">* [0,0,1]</span></span><br><span class="line"><span class="comment">* [100, 4, 200, 1, 3, 2]</span></span><br><span class="line"><span class="comment">* [1,2,3,4,6,7,8]</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">longestConsecutive</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 经考虑，边界不影响</span></span><br><span class="line">        <span class="comment">//if(nums.length==0) return 0;</span></span><br><span class="line">        Set&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            set.add(nums[i]);</span><br><span class="line">        &#125;    </span><br><span class="line">        <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(Integer num : set)&#123;</span><br><span class="line">            <span class="keyword">int</span> c = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span>(!set.contains(num-<span class="number">1</span>))&#123;</span><br><span class="line">                <span class="keyword">int</span> currentNum = num;</span><br><span class="line">                <span class="keyword">while</span>(set.contains(currentNum))&#123;</span><br><span class="line">                    c++;</span><br><span class="line">                    currentNum++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            res = res&gt;=c?res:c;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/04/java/javaweb反射机制/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -558,6 +665,96 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/12/redis/Redis数据类型-Zset/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LZH0713">
+      <meta itemprop="description" content="丰富我的程序员生活,努力做更好">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LZH0713">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/04/12/redis/Redis数据类型-Zset/" class="post-title-link" itemprop="url">Redis五大数据类型-Zset</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-04-12 18:32:34 / 修改时间：20:17:46" itemprop="dateCreated datePublished" datetime="2020-04-12T18:32:34+08:00">2020-04-12</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Zset-有序集合"><a href="#Zset-有序集合" class="headerlink" title="Zset(有序集合)"></a>Zset(有序集合)</h2><p>在set的基础上，添加了一个计数位 zdd k1 score1 v1</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">zadd <span class="comment"># 为某个key指定序号添加一个值</span></span><br><span class="line">zrange <span class="comment"># 获取某个key所有者</span></span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; zadd myzset 1 hello</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">127.0.0.1:6379&gt; zadd myzset 2 world</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">127.0.0.1:6379&gt; zrange myzset 0 -1</span><br><span class="line">1) <span class="string">"hello"</span></span><br><span class="line">2) <span class="string">"world"</span></span><br><span class="line"><span class="comment">#################</span></span><br><span class="line">zrange <span class="comment"># 排序，按score从小到大</span></span><br><span class="line">zrevrange <span class="comment"># 排序，score从大到小</span></span><br><span class="line">zrangebyscore <span class="comment"># 指定范围排序，从小到大</span></span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; zadd myset 80 xiaoming</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">127.0.0.1:6379&gt; zadd myset 88 xiaohong</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">127.0.0.1:6379&gt; zadd myset 100 xiaoniu</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">127.0.0.1:6379&gt; zrange myset 0 -1 <span class="comment"># 排序，按score从小到大</span></span><br><span class="line">1) <span class="string">"xiaoming"</span></span><br><span class="line">2) <span class="string">"xiaohong"</span></span><br><span class="line">3) <span class="string">"xiaoniu"</span></span><br><span class="line">127.0.0.1:6379&gt; zrevrange myset 0 -1 <span class="comment"># 排序，score从大到小</span></span><br><span class="line">1) <span class="string">"xiaoniu"</span></span><br><span class="line">2) <span class="string">"xiaohong"</span></span><br><span class="line">3) <span class="string">"xiaoming"</span></span><br><span class="line">127.0.0.1:6379&gt; zrangebyscore myset -inf +inf <span class="comment"># 无穷小到无穷大，小小到大</span></span><br><span class="line">1) <span class="string">"xiaoming"</span></span><br><span class="line">2) <span class="string">"xiaohong"</span></span><br><span class="line">3) <span class="string">"xiaoniu"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#################</span></span><br><span class="line">zrem 移除有序集合指定元素</span><br><span class="line">zcard 获取有序集合个数</span><br><span class="line">zcount 获取指定区间数量</span><br><span class="line"></span><br><span class="line"><span class="comment">#################</span></span><br><span class="line">127.0.0.1:6379&gt; zcard myset</span><br><span class="line">(<span class="built_in">integer</span>) 5</span><br><span class="line">127.0.0.1:6379&gt; zrem myset xiaoming <span class="comment"># 移除有序集合指定元素</span></span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">127.0.0.1:6379&gt; zcard myset <span class="comment"># 获取有序集合个数</span></span><br><span class="line">(<span class="built_in">integer</span>) 4</span><br><span class="line">127.0.0.1:6379&gt; zcount myset 80 100 <span class="comment">#获取指定区间数量</span></span><br><span class="line">(<span class="built_in">integer</span>) 2</span><br></pre></td></tr></table></figure>
+
+<p>可用于成绩记录，工资记录，排序并快速实现一下区间操作</p>
+<p>参考官方文档：<a href="https://redis.io/commands" target="_blank" rel="noopener">https://redis.io/commands</a></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/12/redis/Redis数据类型-Hash/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -625,96 +822,6 @@
 <p>Hash 适合对象存储，比如设置某个用户的信息 ,String适合存储单个信息</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hmset user:1 name lzh0713 age 25</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; hmset user:2 name <span class="built_in">test</span> age 30</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; hgetall user:1</span><br><span class="line">1) <span class="string">"name"</span></span><br><span class="line">2) <span class="string">"lzh0713"</span></span><br><span class="line">3) <span class="string">"age"</span></span><br><span class="line">4) <span class="string">"25"</span></span><br><span class="line">127.0.0.1:6379&gt; hgetall user:2</span><br><span class="line">1) <span class="string">"name"</span></span><br><span class="line">2) <span class="string">"test"</span></span><br><span class="line">3) <span class="string">"age"</span></span><br><span class="line">4) <span class="string">"30"</span></span><br></pre></td></tr></table></figure>
 
-<p>参考官方文档：<a href="https://redis.io/commands" target="_blank" rel="noopener">https://redis.io/commands</a></p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/12/redis/Redis数据类型-Zset/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LZH0713">
-      <meta itemprop="description" content="丰富我的程序员生活,努力做更好">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LZH0713">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/04/12/redis/Redis数据类型-Zset/" class="post-title-link" itemprop="url">Redis五大数据类型-Zset</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2020-04-12 18:32:34 / 修改时间：20:17:46" itemprop="dateCreated datePublished" datetime="2020-04-12T18:32:34+08:00">2020-04-12</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Zset-有序集合"><a href="#Zset-有序集合" class="headerlink" title="Zset(有序集合)"></a>Zset(有序集合)</h2><p>在set的基础上，添加了一个计数位 zdd k1 score1 v1</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">zadd <span class="comment"># 为某个key指定序号添加一个值</span></span><br><span class="line">zrange <span class="comment"># 获取某个key所有者</span></span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; zadd myzset 1 hello</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">127.0.0.1:6379&gt; zadd myzset 2 world</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">127.0.0.1:6379&gt; zrange myzset 0 -1</span><br><span class="line">1) <span class="string">"hello"</span></span><br><span class="line">2) <span class="string">"world"</span></span><br><span class="line"><span class="comment">#################</span></span><br><span class="line">zrange <span class="comment"># 排序，按score从小到大</span></span><br><span class="line">zrevrange <span class="comment"># 排序，score从大到小</span></span><br><span class="line">zrangebyscore <span class="comment"># 指定范围排序，从小到大</span></span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; zadd myset 80 xiaoming</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">127.0.0.1:6379&gt; zadd myset 88 xiaohong</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">127.0.0.1:6379&gt; zadd myset 100 xiaoniu</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">127.0.0.1:6379&gt; zrange myset 0 -1 <span class="comment"># 排序，按score从小到大</span></span><br><span class="line">1) <span class="string">"xiaoming"</span></span><br><span class="line">2) <span class="string">"xiaohong"</span></span><br><span class="line">3) <span class="string">"xiaoniu"</span></span><br><span class="line">127.0.0.1:6379&gt; zrevrange myset 0 -1 <span class="comment"># 排序，score从大到小</span></span><br><span class="line">1) <span class="string">"xiaoniu"</span></span><br><span class="line">2) <span class="string">"xiaohong"</span></span><br><span class="line">3) <span class="string">"xiaoming"</span></span><br><span class="line">127.0.0.1:6379&gt; zrangebyscore myset -inf +inf <span class="comment"># 无穷小到无穷大，小小到大</span></span><br><span class="line">1) <span class="string">"xiaoming"</span></span><br><span class="line">2) <span class="string">"xiaohong"</span></span><br><span class="line">3) <span class="string">"xiaoniu"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#################</span></span><br><span class="line">zrem 移除有序集合指定元素</span><br><span class="line">zcard 获取有序集合个数</span><br><span class="line">zcount 获取指定区间数量</span><br><span class="line"></span><br><span class="line"><span class="comment">#################</span></span><br><span class="line">127.0.0.1:6379&gt; zcard myset</span><br><span class="line">(<span class="built_in">integer</span>) 5</span><br><span class="line">127.0.0.1:6379&gt; zrem myset xiaoming <span class="comment"># 移除有序集合指定元素</span></span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">127.0.0.1:6379&gt; zcard myset <span class="comment"># 获取有序集合个数</span></span><br><span class="line">(<span class="built_in">integer</span>) 4</span><br><span class="line">127.0.0.1:6379&gt; zcount myset 80 100 <span class="comment">#获取指定区间数量</span></span><br><span class="line">(<span class="built_in">integer</span>) 2</span><br></pre></td></tr></table></figure>
-
-<p>可用于成绩记录，工资记录，排序并快速实现一下区间操作</p>
 <p>参考官方文档：<a href="https://redis.io/commands" target="_blank" rel="noopener">https://redis.io/commands</a></p>
 
         
@@ -1192,102 +1299,6 @@
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/03/java/面向过程和面向对象/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LZH0713">
-      <meta itemprop="description" content="丰富我的程序员生活,努力做更好">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LZH0713">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/10/03/java/面向过程和面向对象/" class="post-title-link" itemprop="url">面向过程和面向对象</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-03 17:16:42 / 修改时间：17:17:24" itemprop="dateCreated datePublished" datetime="2019-10-03T17:16:42+08:00">2019-10-03</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="什么是面向过程？"><a href="#什么是面向过程？" class="headerlink" title="什么是面向过程？"></a>什么是面向过程？</h2><h4 id="概述-自顶而下的编程模式"><a href="#概述-自顶而下的编程模式" class="headerlink" title="概述: 自顶而下的编程模式."></a>概述: 自顶而下的编程模式.</h4><p>把问题分解成一个一个步骤，每个步骤用函数实现，依次调用即可。</p>
-<p>就是说，在进行面向过程编程的时候，不需要考虑那么多，上来先定义一个函数，然后使用各种诸如if-else、for-each等方式进行代码执行。</p>
-<p>最典型的用法就是实现一个简单的算法，比如实现冒泡排序。</p>
-<h2 id="什么是面向对象？"><a href="#什么是面向对象？" class="headerlink" title="什么是面向对象？"></a>什么是面向对象？</h2><h4 id="概述-将事务高度抽象化的编程模式"><a href="#概述-将事务高度抽象化的编程模式" class="headerlink" title="概述: 将事务高度抽象化的编程模式."></a>概述: 将事务高度抽象化的编程模式.</h4><p>将问题分解成一个一个步骤，对每个步骤进行相应的抽象，形成对象，通过不同对象之间的调用，组合解决问题。</p>
-<p>就是说，在进行面向对象进行编程的时候，要把属性、行为等封装成对象，然后基于这些对象及对象的能力进行业务逻辑的实现。</p>
-<p>比如:想要造一辆车，上来要先把车的各种属性定义出来，然后抽象成一个Car类。</p>
-<p>举例说明区别<br>同样一个象棋设计.</p>
-<p>面向对象:创建黑白双方的对象负责演算,棋盘的对象负责画布,规则的对象负责判断，例子可以看出,面向对象更重视不重复造轮子,即创建一次,重复使用.</p>
-<p>面向过程:开始—黑走—棋盘—判断—白走—棋盘—判断—循环。只需要关注每一步怎么实现即可.</p>
-<p>优劣对比<br>面向对象:占用资源相对高,速度相对慢</p>
-<p>面向过程:占用资源相对低,速度相对快</p>
-<h5 id="转载：https-github-com-hollischuang-toBeTopJavaer-blob-master-basics-java-basic-object-oriented-vs-procedure-oriented-md"><a href="#转载：https-github-com-hollischuang-toBeTopJavaer-blob-master-basics-java-basic-object-oriented-vs-procedure-oriented-md" class="headerlink" title="转载：https://github.com/hollischuang/toBeTopJavaer/blob/master/basics/java-basic/object-oriented-vs-procedure-oriented.md"></a>转载：<a href="https://github.com/hollischuang/toBeTopJavaer/blob/master/basics/java-basic/object-oriented-vs-procedure-oriented.md" target="_blank" rel="noopener">https://github.com/hollischuang/toBeTopJavaer/blob/master/basics/java-basic/object-oriented-vs-procedure-oriented.md</a></h5>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1337,7 +1348,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1363,7 +1374,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
